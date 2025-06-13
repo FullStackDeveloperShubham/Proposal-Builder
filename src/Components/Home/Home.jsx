@@ -45,6 +45,7 @@ const Home = () => {
     })
   }
 
+  // download pdf 
   const handleDownloadPDF = () => {
     const input = contentRef.current
 
@@ -107,6 +108,29 @@ const Home = () => {
       toHide.forEach((el) => (el.style.display = ""))
     })
   }
+
+  // cancle 
+  // reset the data 
+   const resetData = () =>{
+    // reset the form data 
+    setData({
+      proposalCreaterName: "",
+      proposoleTitle: "",
+      message: "",
+      budget: 0,
+      startingDate: "",
+      endDate: "",
+      senderName: "",
+      reciverName: "",
+      contactEmail: "",
+      contactPhone: "",
+      toolsUsed: "",
+      description: "",
+      milestones: "",
+      paymentTerms: "",
+      clientRequirements: "",
+    })
+   }
 
   return (
     <div ref={contentRef} className="pdf-container">
@@ -330,7 +354,9 @@ const Home = () => {
       </div>
 
       <div className="button-section no-print">
-        <button className="cancel-button">Cancel</button>
+        <button 
+        onClick={resetData}
+        className="cancel-button">Cancel</button>
         <button onClick={handleDownloadPDF} className="download-button">
           Download PDF
         </button>
